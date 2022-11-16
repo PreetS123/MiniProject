@@ -29,16 +29,12 @@ export const Navbar=()=> {
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Box >Shopping Cart</Box>
             <Center w={'30%'} >
-                <Input bg={'white'} />
+                <Input bg={'white'} placeholder='Search Your Product' />
             </Center>
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
               
-              <Box>
-              <Button bg={useColorModeValue('greenyellow','green.200')} color={'white'} fontSize={30}>
-                <MdShoppingCart/>
-              </Button>
-              </Box>
+              
              <Box>
              <Button onClick={toggleColorMode}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
@@ -48,32 +44,13 @@ export const Navbar=()=> {
               <Menu>
                 <MenuButton
                   as={Button}
-                  rounded={'full'}
-                  variant={'link'}
+                  bg={useColorModeValue('greenyellow','green.200')}
                   cursor={'pointer'}
                   minW={0}>
-                  <Avatar
-                    size={'sm'}
-                    src={'https://avatars.dicebear.com/api/male/username.svg'}
-                  />
+                   <MdShoppingCart color={'white'} fontSize={30}/>
                 </MenuButton>
-                <MenuList alignItems={'center'}>
-                  <br />
-                  <Center>
-                    <Avatar
-                      size={'2xl'}
-                      src={'https://avatars.dicebear.com/api/male/username.svg'}
-                    />
-                  </Center>
-                  <br />
-                  <Center>
-                    <p>Username</p>
-                  </Center>
-                  <br />
-                  <MenuDivider />
-                  <MenuItem>Your Servers</MenuItem>
-                  <MenuItem>Account Settings</MenuItem>
-                  <MenuItem>Logout</MenuItem>
+                <MenuList alignItems={'center'} p={2}  maxW={'370px'}>
+                    {<p>Cart is Empty </p>}
                 </MenuList>
               </Menu>
             </Stack>
