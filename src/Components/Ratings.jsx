@@ -6,7 +6,7 @@ export const Ratings = ({rating,onClick,style}) => {
     <>
      {
         [...Array(5)].map((_,i)=>(
-            <span>
+            <span key={i} onClick={()=>onClick(i)} style={style}>
                 {rating>i?(<AiFillStar fontSize={'15px'}/>):(<AiOutlineStar fontSize={'15px'}/>)}
             </span>
         ))

@@ -5,8 +5,8 @@ import styles from "../Styles/Filter.module.css";
 import { Ratings } from "./Ratings";
 
 export const Filters = () => {
-    const [rate,setRate]= useState(3);
-
+    const [rate,setRate]= useState(2);
+        
   return (
     <div className={styles.filters}>
       <Text fontSize={{base:'12px',md:'19px',lg:'30px'}} fontWeight={500}>Filter Products</Text>
@@ -32,7 +32,7 @@ export const Filters = () => {
       </VStack>
          <Flex>
             <label fontSize={{base:'10px',md:'15px',lg:'20px'}} fontWeight={500}  style={{paddingRight:'10px'}}>Ratings:</label>
-              <Ratings style={{cursor:'Pointer'}}  rating={rate} />
+              <Ratings style={{cursor:'Pointer'}} onClick={(i)=>setRate(i+1)} rating={rate} />
          </Flex>
       <Box>
           <Button w={{base:'80%',md:'60%',lg:'40%'}} fontWeight={900} fontSize={20} p={2}  varient='solid' bg={'white'} color='#343a40' >Clear</Button>
