@@ -14,7 +14,7 @@ export const SingleProducts = ({ prod }) => {
   return (
     <div className={styles.products}>
       <Image h={{base:'130px',md:'230px',lg:'330px'}} src={prod.image} alt={prod.name} />
-      <Box>
+      <Box className={styles.pbox}>
         <Text>{prod.name}</Text>
         <Text>${prod.price}</Text>
         {prod.fastDelivery ? (
