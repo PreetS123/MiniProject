@@ -6,7 +6,7 @@ import { CartState } from '../Context/Context'
 export const Cart = () => {
 
   const {state:{cart},dispatch,}= CartState();
-   
+  //  console.log(cart)
   const [total,setTotal]= useState();
     useEffect(()=>{
       
@@ -28,18 +28,19 @@ export const Cart = () => {
                      <Text>{prod.price}</Text>
                      <Select 
                      w={'30px'} 
+                     value={prod.qty}
                      onChange={(e)=>
                     dispatch({
                       type:'CHANGE_CART_QTY',
                       payload:{
                         id:prod.id,
-                        qty:Number(e.target.value),
+                        qty:e.target.value,
                       },
                     })}
                       >
-                      <option value={1}>1</option>
-                      <option value={2}>2</option>
-                      <option value={3}>3</option>
+                     {[...Array(prod.inStock).keys()].map((x) => (
+                      <option key={x + 1}>{x + 1}</option>
+                    ))}
                      </Select>
                      <Button
                     onClick={() =>
@@ -61,7 +62,8 @@ export const Cart = () => {
            <Heading>Product Sumarry</Heading>
            </Box>
            <Box>
-            <Text> SubTotal ({cart.length}) items <span> {total}</span></Text>
+            <Text> SubTotal ({cart.length}) items </Text>
+            <Text>Total: {total}</Text>
            </Box>
 
            <Button bg='blue.600' disabled={cart.length===0} >
