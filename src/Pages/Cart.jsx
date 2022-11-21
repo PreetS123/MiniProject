@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, HStack, Image, Select, Text, VStack } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Image, Select, Text, VStack } from '@chakra-ui/react';
 import React,{useState,useEffect} from 'react'
 import { AiFillDelete } from 'react-icons/ai';
 import { CartState } from '../Context/Context'
