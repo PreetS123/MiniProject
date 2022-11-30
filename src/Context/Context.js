@@ -25,17 +25,18 @@ export const Context = ({children}) => {
     })
    
 
-    const [prodstate,proddispatch]= useReducer(prodReducer,{
+    const [prodstate,prodDispatch]= useReducer(prodReducer,{
       byStock:false,
       byFastDelivery:false,
       byRating:0,
       serchQuerry:''
     })
+    console.log(prodstate);
 
     
 
   return (
-    <Cart.Provider value={{state,dispatch,prodstate,proddispatch}}>
+    <Cart.Provider value={{state,dispatch,prodstate,prodDispatch}}>
          {children}
     </Cart.Provider>
   )

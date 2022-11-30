@@ -15,10 +15,10 @@ import { Ratings } from "./Ratings";
 
 export const Filters = () => {
   const {
-    prodstate: { byStock, byFastDelivery, byRating, serchQuerry },
-    proddispatch,
+    prodstate: { byStock, byFastDelivery, byRating },
+    prodDispatch,
   } = CartState();
-  console.log(byStock, byFastDelivery, byRating, serchQuerry);
+  // console.log(byStock, byFastDelivery, byRating, serchQuerry);
 
   return (
     <div className={styles.filters}>
@@ -38,7 +38,7 @@ export const Filters = () => {
             colorScheme="orange"
             value="asc"
             onChange={()=>
-            proddispatch({
+            prodDispatch({
               type:'SORT_BY_PRICE',
               payload:'lowToHigh'
             })}
@@ -53,7 +53,7 @@ export const Filters = () => {
             colorScheme="orange"
             value="desc"
             onChange={()=>
-              proddispatch({
+              prodDispatch({
                 type:'SORT_BY_PRICE',
                 payload:'highToLow'
               })}
@@ -70,9 +70,10 @@ export const Filters = () => {
           size="md"
           colorScheme="green"
           onChange={()=>
-            proddispatch({
-              type:'FILTER_BY_STACK',
+            prodDispatch({
+              type:'FILTER_BY_STOCK',
             })}
+            checked={byStock}
         >
           InStock Products
         </Checkbox>
@@ -82,7 +83,7 @@ export const Filters = () => {
           size="md"
           colorScheme="green"
           onChange={()=>
-            proddispatch({
+            prodDispatch({
               type:'FILTER_BY_DELIVERY',
             })}
             checked={byFastDelivery}
@@ -101,7 +102,7 @@ export const Filters = () => {
         <Ratings
           style={{ cursor: "Pointer" }}
           onClick={(i) =>
-            proddispatch({
+            prodDispatch({
               type: "FILTER_BY_RATING",
               payload: i + 1,
             })
@@ -118,6 +119,10 @@ export const Filters = () => {
           varient="solid"
           bg={"white"}
           color="#343a40"
+          onClick={()=>
+            prodDispatch({
+              type:'CLEAR_FILTER',
+            })}
         >
           Clear
         </Button>

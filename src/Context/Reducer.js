@@ -3,7 +3,7 @@ export const cartReducer = (state, action) => {
     case "ADD_TO_CART":
       return {
         ...state,
-        cart: [...state.cart, { ...action.payload, qty: 1 }],
+        cart: [...state.cart,{ ...action.payload, qty: 1 }],
       };
     case "REMOVE_FROM_CART":
       return {
@@ -24,9 +24,9 @@ export const cartReducer = (state, action) => {
 
 export const prodReducer = (state, action) => {
   switch (action.type) {
-    case "SORT_BY_RATE":
+    case "SORT_BY_PRICE":
       return { ...state, sort: action.payload };
-    case "FILTER_BY_STOCK":
+       case "FILTER_BY_STOCK":
       return { ...state, byStock: !state.byStock };
     case "FILTER_BY_DELIVERY":
       return { ...state, byFastDelivery: !state.byFastDelivery };
@@ -39,7 +39,6 @@ export const prodReducer = (state, action) => {
         byStock: false,
         byFastDelivery: false,
         byRating: 0,
-        serchQuerry: "",
       };
 
     default:
