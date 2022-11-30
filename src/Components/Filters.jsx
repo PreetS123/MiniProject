@@ -15,7 +15,7 @@ import { Ratings } from "./Ratings";
 
 export const Filters = () => {
   const {
-    prodstate: { byStock, byFastDelivery, byRating },
+    prodstate: {sort, byStock, byFastDelivery, byRating },
     prodDispatch,
   } = CartState();
   // console.log(byStock, byFastDelivery, byRating, serchQuerry);
@@ -42,7 +42,7 @@ export const Filters = () => {
               type:'SORT_BY_PRICE',
               payload:'lowToHigh'
             })}
-            // checked={sort==='lowToHigh'?true:false}
+            checked={sort==='lowToHigh'?true:false}
           >
             Ascending
           </Radio>
@@ -57,6 +57,7 @@ export const Filters = () => {
                 type:'SORT_BY_PRICE',
                 payload:'highToLow'
               })}
+              checked={sort==='HighToLow'?true:false}
           >
             Descending
           </Radio>

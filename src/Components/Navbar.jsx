@@ -26,7 +26,8 @@ import { NavLink } from "react-router-dom";
 export const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   // const { isOpen, onOpen, onClose } = useDisclosure();
-
+  
+  const {prodDispatch,prodstate:{serchQuerry}}=CartState();
   const {
     state: { cart },
     dispatch,
@@ -46,7 +47,16 @@ export const Navbar = () => {
             <NavLink to="/">Shopping Cart</NavLink>
           </Box>
           <Center w={"30%"}>
-            <Input bg={"white"} placeholder="Search Your Product" />
+            <Input 
+            bg={"white"}
+             placeholder="Search Your Product"
+              onChange={(e)=>{
+                prodDispatch({
+                  type:'FILTER_BY_SEARCH',
+                  payload:e.target.value
+                })
+              }}
+             />
           </Center>
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>

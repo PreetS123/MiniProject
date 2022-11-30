@@ -26,6 +26,7 @@ export const Context = ({children}) => {
    
 
     const [prodstate,prodDispatch]= useReducer(prodReducer,{
+      sort:'lowToHigh',
       byStock:false,
       byFastDelivery:false,
       byRating:0,
